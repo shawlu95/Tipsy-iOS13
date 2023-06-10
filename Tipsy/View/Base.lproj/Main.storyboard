@@ -205,7 +205,7 @@
                         <outlet property="tenPctButton" destination="7y6-Kf-yF0" id="ifS-RQ-LUh"/>
                         <outlet property="twentyPctButton" destination="UtR-dU-EKt" id="MRv-yi-aJM"/>
                         <outlet property="zeroPctButton" destination="XzR-0E-Xf7" id="ZvE-pt-kFg"/>
-                        <segue destination="Dnf-m2-FPm" kind="presentation" id="jgP-y5-lUM"/>
+                        <segue destination="Dnf-m2-FPm" kind="presentation" identifier="goToResults" id="jgP-y5-lUM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -295,7 +295,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="settomgsLabel" destination="HGt-bn-sCv" id="bG1-bp-8bR"/>
+                        <outlet property="settingsLabel" destination="HGt-bn-sCv" id="bG1-bp-8bR"/>
                         <outlet property="totalLabel" destination="uLJ-ii-hft" id="mtD-32-pNG"/>
                     </connections>
                 </viewController>
