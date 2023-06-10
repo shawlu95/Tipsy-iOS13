@@ -17,13 +17,10 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var splitNumberLabel: UILabel!
     @IBOutlet weak var stepper: UIStepper!
     
-    var amount: Double?
-    var tip: Double?
-    var split: Double?
+    var calculator: Calculator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func tipChanged(_ sender: UIButton) {
@@ -45,19 +42,18 @@ class CalculatorViewController: UIViewController {
             return
         }
         
-        amount = Double(billTextField.text!)!
-        tip = zeroPctButton.isSelected ? 0.0 : (tenPctButton.isSelected ? 0.1 : 0.2)
-        split = Double(splitNumberLabel.text!)!
-
+        let amount = Double(billTextField.text!)!
+        let tip = zeroPctButton.isSelected ? 0.0 : (tenPctButton.isSelected ? 0.1 : 0.2)
+        let split = Double(splitNumberLabel.text!)!
+        calculator = Calculator(amount: amount, tip: tip, split: split)
+        
         performSegue(withIdentifier: "goToResults", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResults" {
             let destinationVC = segue.destination as! ResultsViewController
-            destinationVC.amount = amount ?? 0.0
-            destinationVC.tip = tip ?? 0.0
-            destinationVC.split = split ?? 1.0
+            destinationVC.calculator = calculator
         }
     }
 }
