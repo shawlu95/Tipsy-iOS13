@@ -18,19 +18,21 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var stepper: UIStepper!
     
     var calculator: Calculator?
+    var tip: Double = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @IBAction func tipChanged(_ sender: UIButton) {
-        // dismiss keyboard
         billTextField.endEditing(true)
         
         zeroPctButton.isSelected = false
         tenPctButton.isSelected = false
         twentyPctButton.isSelected = false
         sender.isSelected = true
+        
+        tip = Double(String(sender.currentTitle!.dropLast()))! / 100
     }
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
@@ -43,7 +45,6 @@ class CalculatorViewController: UIViewController {
         }
         
         let amount = Double(billTextField.text!)!
-        let tip = zeroPctButton.isSelected ? 0.0 : (tenPctButton.isSelected ? 0.1 : 0.2)
         let split = Double(splitNumberLabel.text!)!
         calculator = Calculator(amount: amount, tip: tip, split: split)
         
