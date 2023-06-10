@@ -15,6 +15,7 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var tenPctButton: UIButton!
     @IBOutlet weak var twentyPctButton: UIButton!
     @IBOutlet weak var splitNumberLabel: UILabel!
+    @IBOutlet weak var stepper: UIStepper!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +30,11 @@ class CalculatorViewController: UIViewController {
     }
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
-        print(sender.value)
         splitNumberLabel.text = String.init(format: "%.0f", sender.value)
     }
     
     @IBAction func calculatePressed(_ sender: UIButton) {
+        print(stepper.value)
     }
 }
 
