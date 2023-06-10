@@ -47,6 +47,7 @@ class CalculatorViewController: UIViewController {
 
         let result = amount * (1 + tip) / split
         print(String(format: "%.2f", result))
+        performSegue(withIdentifier: "goToResults", sender: self)
     }
 }
 
